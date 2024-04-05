@@ -12,13 +12,43 @@
             margin: 0;
             padding: 0;
             font-family: 'Madimi One', sans-serif;
-            background: linear-gradient(to bottom, #3498db, #2c3e50); 
-            color: white; 
+            color: white;
+            overflow: hidden;
+            position: relative;
+            background-color: #1a1a1a;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .background img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -1;
+            opacity: 0.5;
+            animation: animateBackground 60s linear infinite;
+        }
+
+        @keyframes animateBackground {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
         header {
             text-align: center;
             padding: 20px 0;
+            background-color: #333;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
         }
 
         h1 {
@@ -30,67 +60,43 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            z-index: 1;
+            position: relative;
+            padding: 20px;
         }
 
-        .player-info {
-            text-align: center;
-            margin-bottom: 40px;
+        .section {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .gallery {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            margin: 0 10px;
-        }
-
-        .matches {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .matches h2 {
+        .section h2 {
             font-size: 24px;
-            margin: 0;
+            margin: 0 0 10px 0;
         }
 
-        .matches ul {
-            list-style: none;
-            padding: 0;
+        .section p {
+            margin: 0 0 20px 0;
         }
 
-        .matches li {
-            margin-bottom: 10px;
-        }
-
-        .matches .match {
-            font-weight: bold;
-        }
-
-        .matches a {
+        .section a {
             color: #ffcd00;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .additional-info {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .additional-info h2 {
-            font-size: 24px;
-            margin: 0;
+        .section a:hover {
+            color: #ffd700;
         }
 
         .footer {
             text-align: center;
             padding: 20px 0;
-            background-color: #2c3e50;
+            background-color: #333;
+            box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.5);
         }
 
         .footer p {
@@ -101,17 +107,28 @@
         .footer a {
             color: #ffcd00;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #ffd700;
         }
     </style>
     <title>Performance Pedro Guilherme 2024/25</title>
 </head>
 <body>
+    <div class="background">
+        <img src="flamengo1.png.jpg" alt="Flamengo">
+        <img src="flamengo2.png.png" alt="Flamengo">
+    </div>
+
     <header>
         <h1>Performance de Pedro Guilherme 2024/25</h1>
     </header>
 
     <main>
-        <section class="player-info">
+        <section class="section player-info">
+            <h2>Destaques do Jogador</h2>
             <p>Confira abaixo os destaques do jogador Pedro Guilherme em suas últimas partidas pelo Flamengo:</p>
             <div class="gallery">
                 <img src="p9.jpg" alt="Pedro">
@@ -120,7 +137,7 @@
             </div>
         </section>
 
-        <section class="matches">
+        <section class="section matches">
             <h2>Últimas Partidas</h2>
             <ul>
                 <li>
@@ -138,14 +155,14 @@
             </ul>
         </section>
 
-        <section class="additional-info">
+        <section class="section additional-info">
             <h2>Mais Informações</h2>
             <p>Para mais detalhes sobre a carreira de Pedro Guilherme, visite o link abaixo:</p>
             <a href="https://www.transfermarkt.com.br/pedro/profil/spieler/432895" target="_blank">Transfermarkt</a>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <p>Para ver os elementos utilizados, acesse: <a href="https://github.com/szoboloai/repositro" target="_blank">Github</a></p>
     </footer>
 </body>
